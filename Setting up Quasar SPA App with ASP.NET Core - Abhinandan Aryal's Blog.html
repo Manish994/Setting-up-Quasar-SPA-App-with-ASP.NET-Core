@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)https://abhinandanaryal.info.np/article/setting-up-quasar-app-with-asp-net-core -->
+<html dir="ltr" lang="en-us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="apple-mobile-web-app-title" content="Abhinandan Aryal&#39;s Blog">
+    <meta name="google-site-verification" content="t0M6itf_XKrr901hDsW1dQP8dhME3rFGF6cUYjxHCaE">
+    <meta name="og:image" content="https://abhinandanaryal.info.np/img/abhi_photo.jpg">
+    <meta name="twitter:image" content="https://abhinandanaryal.info.np/img/abhi_photo.jpg">
+    <link href="./Setting up Quasar SPA App with ASP.NET Core - Abhinandan Aryal&#39;s Blog_files/css" rel="stylesheet" type="text/css">
+    <link href="./Setting up Quasar SPA App with ASP.NET Core - Abhinandan Aryal&#39;s Blog_files/all.css" rel="stylesheet" type="text/css">
+    <link href="./Setting up Quasar SPA App with ASP.NET Core - Abhinandan Aryal&#39;s Blog_files/quasar.min.css" rel="stylesheet" type="text/css">
+    <link href="./Setting up Quasar SPA App with ASP.NET Core - Abhinandan Aryal&#39;s Blog_files/css2" rel="stylesheet">
+    
+    <meta name="description" content="ASP.NET Core provides project templates for various javascript frameworks like Angular, React, etc. In this article, I will explain the process to setup ASP .NET Core with a very popular VueJS framework Quasar.">
+    <meta name="title" content="Setting up Quasar SPA App with ASP.NET Core">
+    <meta name="author" content="Abhinandan Aryal">
+
+    <meta name="og:description" content="ASP.NET Core provides project templates for various javascript frameworks like Angular, React, etc. In this article, I will explain the process to setup ASP .NET Core with a very popular VueJS framework Quasar.">
+    <meta name="og:title" content="Setting up Quasar SPA App with ASP.NET Core">
+    <meta name="og:url" content="https://abhinandanaryal.info.np/article/setting-up-quasar-app-with-asp-net-core">
+    <meta name="og:type" content="article">
+
+    <meta name="twitter:description" content="ASP.NET Core provides project templates for various javascript frameworks like Angular, React, etc. In this article, I will explain the process to setup ASP .NET Core with a very popular VueJS framework Quasar.">
+    <meta name="twitter:title" content="Setting up Quasar SPA App with ASP.NET Core">
+
+    <title>Setting up Quasar SPA App with ASP.NET Core - Abhinandan Aryal's Blog </title>
+
+    
+    <style>
+        h2 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        code{
+            background-color:#fcd9d9; padding: 0.15rem; border-radius: 0.25rem;;
+        }
+    </style>
+    <link href="./Setting up Quasar SPA App with ASP.NET Core - Abhinandan Aryal&#39;s Blog_files/prism.css" rel="stylesheet">
+    <link href="./Setting up Quasar SPA App with ASP.NET Core - Abhinandan Aryal&#39;s Blog_files/atom-theme.css" rel="stylesheet">
+
+    <style>
+        .bg-grey2 {
+            background-color: #efefef;
+        }
+
+        [v-cloak] > * {
+            display: none
+        }
+
+        [v-cloak]::before {
+            content: "Loading Data";
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="desktop no-touch body--light" style="--q-color-primary:#7a1515;">
+    <div id="q-app"><div class="q-layout q-layout--standard" style="min-height: 553px;"><!----><!----><header class="q-header q-layout__section--marginal bg-primary text-white fixed-top" flat="" style="left: 300px;"><div class="q-toolbar row no-wrap items-center"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--flat q-btn--round q-btn--actionable q-focusable q-hoverable q-btn--wrap q-btn--dense"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="material-icons q-icon notranslate">menu</i></span></span></button> <div class="q-toolbar__title ellipsis">Abhinandan's Blog</div></div><!----></header> <div class="q-drawer-container"><aside class="q-drawer q-drawer--left q-drawer--bordered q-drawer--standard fixed q-drawer--top-padding" style="width: 300px; transform: translateX(0px);"><div class="q-drawer__content fit scroll bg-grey2"><div class="bg-grey2 q-card q-card--flat no-shadow"><div class="q-card__section q-card__section--vert"><h5 class="q-mb-sm q-mt-md" style="text-align: center; font-family: Inconsolata, monospace;">ABHINANDAN ARYAL</h5> <p style="text-align: center; font-family: Inconsolata, monospace;">anudwigna[at]gmail.com</p></div> <div class="q-card__section q-card__section--vert" style="text-align: center;"><button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-pa-xs q-mr-sm q-btn--standard q-btn--round bg-primary text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size: 14px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fab fa-stack-overflow q-icon notranslate"> </i></span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-primary q-pa-xs q-mr-sm text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size: 14px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fab fa-linkedin q-icon notranslate"> </i></span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-primary q-pa-xs q-mr-sm text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size: 14px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fab fa-twitter q-icon notranslate"> </i></span></span></button> <button tabindex="0" type="button" role="button" class="q-btn q-btn-item non-selectable no-outline q-btn--standard q-btn--round bg-primary q-pa-xs q-mr-sm text-white q-btn--actionable q-focusable q-hoverable q-btn--wrap" style="font-size: 14px;"><span class="q-focus-helper"></span><span class="q-btn__wrapper col row q-anchor--skip"><span class="q-btn__content text-center col items-center q-anchor--skip justify-center row"><i aria-hidden="true" role="img" class="fab fa-facebook q-icon notranslate"> </i></span></span></button></div> <div class="q-card__section q-card__section--vert"><p class="text-center"><a href="https://abhinandanaryal.info.np/" class="text-primary">HOME</a></p></div></div></div></aside></div> <div class="q-page-container" style="padding-top: 50px; padding-left: 300px;"><div class="row justify-center"><div class="col-11"><div class="q-mt-md q-card q-card--square no-border-radius q-card--flat no-shadow"><div class="q-card__section q-card__section--vert"><h4 class="text-primary q-my-sm">Setting up Quasar SPA App with ASP.NET Core</h4> <p class="q-my-none text-primary">Oct 25, 2020</p> <div class="q-chip row inline no-wrap items-center q-ml-none" style="font-size: 10px;"><i aria-hidden="true" role="presentation" class="q-chip__icon q-chip__icon--left material-icons q-icon notranslate">tag</i><div class="q-chip__content col row no-wrap items-center q-anchor--skip">C#</div></div> <div class="q-chip row inline no-wrap items-center q-ml-none" style="font-size: 10px;"><i aria-hidden="true" role="presentation" class="q-chip__icon q-chip__icon--left material-icons q-icon notranslate">tag</i><div class="q-chip__content col row no-wrap items-center q-anchor--skip">ASP.NET Core</div></div> <div class="q-chip row inline no-wrap items-center q-ml-none" style="font-size: 10px;"><i aria-hidden="true" role="presentation" class="q-chip__icon q-chip__icon--left material-icons q-icon notranslate">tag</i><div class="q-chip__content col row no-wrap items-center q-anchor--skip">Quasar</div></div> <div class="q-chip row inline no-wrap items-center q-ml-none" style="font-size: 10px;"><i aria-hidden="true" role="presentation" class="q-chip__icon q-chip__icon--left material-icons q-icon notranslate">tag</i><div class="q-chip__content col row no-wrap items-center q-anchor--skip">VueJS</div></div> <hr role="separator" aria-orientation="horizontal" class="q-separator q-my-md q-separator q-separator--horizontal"> <h2 id="setting-up-a-spa-project-in-asp-core-project">Setting up a SPA project in ASP Core Project</h2> <p>ASP.NET Core have SPA project templates for Angular, React, etc. However, we can leverage the same project templates to use with other javascript frameworks as well. Here, in this article I will explain how we can setup asp core SPA Project template to use Quasar, which is a very nice VueJS framework.</p> <p>Let us first create an ASP Core SPA project using ReactJS template. Later on, I will modify it to support VueJS and Quasar. Fire up Visual Studio ( <em>in my case it is Visual Studio Community 2019</em> ), select the option to create a new project. Select 'ASP Net Core Web Application'. Give it a name 'MyQuasarApp' and in next window, you will be given an option to choose the template for the project. Here, choose the 'ReactJS' template as shown.</p> <p><img src="./Setting up Quasar SPA App with ASP.NET Core - Abhinandan Aryal&#39;s Blog_files/project-template.png" alt="Project template for React JS"></p> <p>Next, click on the 'Create' button to create the project. After creating the project, you will get the structure as shown below:</p> <p><img src="./Setting up Quasar SPA App with ASP.NET Core - Abhinandan Aryal&#39;s Blog_files/project-structure.png" alt="Project Structure for React JS"></p> <p>Here, as you can see a 'ClientApp' folder is automatically created which contains the source files for ReactJS project. If we run the project now, we can see a ReactJS app running inside ASP Core Project. Build the application by pressing <code>Ctrl + Shift + B</code>. It may take certain time to build the project as it downloads all the dependecies for react project. After that run the application by pressing <code>Ctrl + F5</code></p> <p><img src="./Setting up Quasar SPA App with ASP.NET Core - Abhinandan Aryal&#39;s Blog_files/project-run.png" alt="Project template for React JS"></p> <h2 id="setting-up-a-quasar-app">Setting up a Quasar App</h2> <p>Now, it's time to setup a Quasar App. There are some prerequisites to setup Quasar App. The easiest way is to setup Quasar CLI. The documentation for installation of Quasar CLI can be found <a href="https://quasar.dev/quasar-cli/installation">here</a>. Now, delete the 'clientapp' folder and let's create Quasar App. Fire up a command prompt window with the project root location. The easiest way to do this is to open up developer command prompt within the visual studio. For this, go to 'Tools -&gt; Command Line -&gt; Developer Command Prompt'. Change directory to locate your project root and paste the following code to create a quasar app.</p> <pre class=" language-bash"><code class=" language-bash">quasar create clientapp
+</code></pre> <p><em>For convienience, I am setting up the quasar app with name clientapp.</em></p> <p><img src="./Setting up Quasar SPA App with ASP.NET Core - Abhinandan Aryal&#39;s Blog_files/quasar_installation.png" alt="Quasar Installation"></p> <p>You will have to answer a couple of questions to setup the initial configuration for the application. After giving up all the answers you will get a fresh installation of quasar app. I have chosen yarn as my package manager. You can go with NPM as well. This marks the end of Quasar Installation.</p> <h2 id="asp-core-app-configuration-for-quasar-support">ASP Core App Configuration for Quasar Support</h2> <p>Now it's time to complete the configuration part to support the quasar app installation. There are some changes that you need to make to <code>Startup.cs</code> and <code>MyQuasarApp.csproj</code> files. The configuration are related to deployment of clientapp, proxying to development server, etc. The final <code>Startup.cs</code> looks like below:</p> <pre class=" language-csharp"><code class=" language-csharp"><span class="token keyword">using</span> <span class="token namespace">Microsoft<span class="token punctuation">.</span>AspNetCore<span class="token punctuation">.</span>Builder</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">Microsoft<span class="token punctuation">.</span>AspNetCore<span class="token punctuation">.</span>Hosting</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">Microsoft<span class="token punctuation">.</span>Extensions<span class="token punctuation">.</span>Configuration</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">Microsoft<span class="token punctuation">.</span>Extensions<span class="token punctuation">.</span>DependencyInjection</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">Microsoft<span class="token punctuation">.</span>Extensions<span class="token punctuation">.</span>Hosting</span><span class="token punctuation">;</span>
+
+<span class="token keyword">namespace</span> <span class="token namespace">MyQuasarApp</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Startup</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">public</span> <span class="token function">Startup</span><span class="token punctuation">(</span><span class="token class-name">IConfiguration</span> configuration<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Configuration <span class="token operator">=</span> configuration<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">public</span> <span class="token return-type class-name">IConfiguration</span> Configuration <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">ConfigureServices</span><span class="token punctuation">(</span><span class="token class-name">IServiceCollection</span> services<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            services<span class="token punctuation">.</span><span class="token function">AddControllersWithViews</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            services<span class="token punctuation">.</span><span class="token function">AddSpaStaticFiles</span><span class="token punctuation">(</span>configuration <span class="token operator">=&gt;</span>
+            <span class="token punctuation">{</span>
+                configuration<span class="token punctuation">.</span>RootPath <span class="token operator">=</span> <span class="token string">"ClientApp/dist/spa"</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Configure</span><span class="token punctuation">(</span><span class="token class-name">IApplicationBuilder</span> app<span class="token punctuation">,</span> <span class="token class-name">IWebHostEnvironment</span> env<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>env<span class="token punctuation">.</span><span class="token function">IsDevelopment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                app<span class="token punctuation">.</span><span class="token function">UseDeveloperExceptionPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span>
+            <span class="token punctuation">{</span>
+                app<span class="token punctuation">.</span><span class="token function">UseExceptionHandler</span><span class="token punctuation">(</span><span class="token string">"/Error"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                app<span class="token punctuation">.</span><span class="token function">UseHsts</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            app<span class="token punctuation">.</span><span class="token function">UseHttpsRedirection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            app<span class="token punctuation">.</span><span class="token function">UseStaticFiles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            app<span class="token punctuation">.</span><span class="token function">UseSpaStaticFiles</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            app<span class="token punctuation">.</span><span class="token function">UseRouting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            app<span class="token punctuation">.</span><span class="token function">UseEndpoints</span><span class="token punctuation">(</span>endpoints <span class="token operator">=&gt;</span>
+            <span class="token punctuation">{</span>
+                endpoints<span class="token punctuation">.</span><span class="token function">MapControllerRoute</span><span class="token punctuation">(</span>
+                    <span class="token named-parameter punctuation">name</span><span class="token punctuation">:</span> <span class="token string">"default"</span><span class="token punctuation">,</span>
+                    <span class="token named-parameter punctuation">pattern</span><span class="token punctuation">:</span> <span class="token string">"{controller}/{action=Index}/{id?}"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            app<span class="token punctuation">.</span><span class="token function">UseSpa</span><span class="token punctuation">(</span>spa <span class="token operator">=&gt;</span>
+            <span class="token punctuation">{</span>
+                spa<span class="token punctuation">.</span>Options<span class="token punctuation">.</span>SourcePath <span class="token operator">=</span> <span class="token string">"ClientApp"</span><span class="token punctuation">;</span>
+
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>env<span class="token punctuation">.</span><span class="token function">IsDevelopment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                <span class="token punctuation">{</span>
+                    spa<span class="token punctuation">.</span><span class="token function">UseProxyToSpaDevelopmentServer</span><span class="token punctuation">(</span><span class="token string">"http://localhost:8080"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <p>Also, in order to correctly publish this type of application, you need to change some settings in <code>MyQuasarApp.csproj</code> file. The final code after changes looks like below:</p> <pre class=" language-xml"><code class=" language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Project</span> <span class="token attr-name">Sdk</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Microsoft.NET.Sdk.Web<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PropertyGroup</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TargetFramework</span><span class="token punctuation">&gt;</span></span>netcoreapp3.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>TargetFramework</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TypeScriptCompileBlocked</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>TypeScriptCompileBlocked</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TypeScriptToolsVersion</span><span class="token punctuation">&gt;</span></span>Latest<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>TypeScriptToolsVersion</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>IsPackable</span><span class="token punctuation">&gt;</span></span>false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>IsPackable</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>SpaRoot</span><span class="token punctuation">&gt;</span></span>ClientApp\<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>SpaRoot</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DefaultItemExcludes</span><span class="token punctuation">&gt;</span></span>$(DefaultItemExcludes);$(SpaRoot)node_modules\**<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>DefaultItemExcludes</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>PropertyGroup</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ItemGroup</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PackageReference</span> <span class="token attr-name">Include</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Microsoft.AspNetCore.SpaServices.Extensions<span class="token punctuation">"</span></span> <span class="token attr-name">Version</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>3.1.9<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ItemGroup</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ItemGroup</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Content</span> <span class="token attr-name">Remove</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$(SpaRoot)**<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>None</span> <span class="token attr-name">Remove</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$(SpaRoot)**<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>None</span> <span class="token attr-name">Include</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$(SpaRoot)**<span class="token punctuation">"</span></span> <span class="token attr-name">Exclude</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$(SpaRoot)node_modules\**<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ItemGroup</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Target</span> <span class="token attr-name">Name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>PublishRunWebpack<span class="token punctuation">"</span></span> <span class="token attr-name">AfterTargets</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>ComputeFilesToPublish<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Exec</span> <span class="token attr-name">WorkingDirectory</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$(SpaRoot)<span class="token punctuation">"</span></span> <span class="token attr-name">Command</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>yarn install<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Exec</span> <span class="token attr-name">WorkingDirectory</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$(SpaRoot)<span class="token punctuation">"</span></span> <span class="token attr-name">Command</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>quasar build<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ItemGroup</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DistFiles</span> <span class="token attr-name">Include</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$(SpaRoot)dist\**<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ResolvedFileToPublish</span> <span class="token attr-name">Include</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@(DistFiles-&gt;<span class="token punctuation">'</span>%(FullPath)<span class="token punctuation">'</span>)<span class="token punctuation">"</span></span> <span class="token attr-name">Exclude</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@(ResolvedFileToPublish)<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RelativePath</span><span class="token punctuation">&gt;</span></span>%(DistFiles.Identity)<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>RelativePath</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>CopyToPublishDirectory</span><span class="token punctuation">&gt;</span></span>PreserveNewest<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>CopyToPublishDirectory</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ExcludeFromSingleFile</span><span class="token punctuation">&gt;</span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ExcludeFromSingleFile</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ResolvedFileToPublish</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ItemGroup</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Target</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Project</span><span class="token punctuation">&gt;</span></span>
+</code></pre> <p>The configuration related to proper building the client app separately while publishing the asp core app is also specified in this project file. After this only, the clientapp folder is properly placed along with the published files.</p> <h2 id="running-the-application">Running the application</h2> <p>In order to run the application, first run the client app separately. For this, fire up a command prompt and cd into the clientapp folder and run the following command:</p> <pre class=" language-bash"><code class=" language-bash">quasar dev
+</code></pre> <p>This will start a development build of the app in its default port 8080. Open the browser and browse to 'http://localhost:8080'. Here you can see that the quasar app is running successfully. But, you also need to run the asp core project separately in order to run your APIs. You can see the app running only when you have started the Quasar App separately first.</p> <p>This is a little bit tedious as there is not any built in support for VueJS projects like that of ReactJS. For ReactJS projects, you need to start the asp core project and all other things are properly taken care of.</p> <p>The code related to this article can be found <a href="https://github.com/anudwigna/articles/tree/master/MyQuasarApp">here.</a></p></div></div></div></div></div></div></div>
+    <script>
+        window.quasarConfig = {
+            brand: {
+                primary: '#7a1515'
+            }
+        }
+    </script>
+    <script src="./Setting up Quasar SPA App with ASP.NET Core - Abhinandan Aryal&#39;s Blog_files/vue.min.js.download"></script>
+    <script src="./Setting up Quasar SPA App with ASP.NET Core - Abhinandan Aryal&#39;s Blog_files/quasar.umd.min.js.download"></script><div aria-hidden="true" class="q-loading-bar q-loading-bar--top" style="transform: translate3d(-100%, -200%, 0px); height: 2px; opacity: 0;"></div><div class="q-notifications"><div class="q-notifications__list q-notifications__list--top fixed column no-wrap items-start"></div><div class="q-notifications__list q-notifications__list--top fixed column no-wrap items-end"></div><div class="q-notifications__list q-notifications__list--bottom fixed column no-wrap items-start"></div><div class="q-notifications__list q-notifications__list--bottom fixed column no-wrap items-end"></div><div class="q-notifications__list q-notifications__list--top fixed column no-wrap items-center"></div><div class="q-notifications__list q-notifications__list--bottom fixed column no-wrap items-center"></div><div class="q-notifications__list q-notifications__list--center fixed column no-wrap items-start justify-center"></div><div class="q-notifications__list q-notifications__list--center fixed column no-wrap items-end justify-center"></div><div class="q-notifications__list q-notifications__list--center fixed column no-wrap flex-center"></div></div>
+    
+    <script src="./Setting up Quasar SPA App with ASP.NET Core - Abhinandan Aryal&#39;s Blog_files/prism.js.download"></script>
+
+    <script>
+        new Vue({
+            el: '#q-app',
+            data: function () {
+                return {
+                    left: false
+                }
+            },
+            methods: {
+                goTo: function (url) {
+                    window.open(url,'_blank');
+                }
+            },
+            mounted() {
+                
+            }
+        })
+    </script>
+
+
+
+</body></html>
